@@ -82,15 +82,18 @@ namespace Victor { namespace Align2{
                 output);
     }
 /**
- * 
+ * @param showScore show alignment score
  * @param output
  */
     void
-    Alignment::saveFasta(ostream &output) const {
+    Alignment::saveFasta(ostream &output, bool showScore) const {
         AlignmentBase::saveFasta(target, targetName, output);
 
         for (unsigned int j = 0; j < seqTemplate.size(); j++) {
-            string tmp = seqTemplateName[j] + " // " + dtosDEF(score[j]);
+        	string tmp = seqTemplateName[j];
+        	if(showScore)
+        		tmp += " // " + dtosDEF(score[j]);
+
             AlignmentBase::saveFasta(seqTemplate[j], tmp, output);
         }
     }
