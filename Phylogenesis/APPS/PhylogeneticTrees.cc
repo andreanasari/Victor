@@ -48,7 +48,7 @@ void sShowHelp() {
 			<< "\n   [--local]         \t Smith-Waterman local alignment"
 			<< "\n   [--freeshift]     \t Free-shift alignment"
 			<< "\n   [--matrix <name>] \t Custom distance matrix"
-			<< "\n   [-m <name>]       \t Name of substitution matrix file (default = blosum62.dat)"
+			<< "\n   [-m <name>]       \t Name of substitution matrix file (default = blosum30.dat)"
             << "\n   [-o <double>]     \t Open gap penalty (default = 10.00)"
             << "\n   [-e <double>]     \t Extension gap penalty (default = 0.10)"
 			<< "\n"
