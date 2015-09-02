@@ -50,13 +50,17 @@ namespace Phylogenesis {
 		virtual void saveFasta(ostream &output) const;
 
 		/// Save single line in CLUSTAL format.
-		static void saveClustal(string t, string tName, ostream &output, unsigned int from);
+		static void saveClustal(string t, string tName, ostream &output, unsigned int from, unsigned int maxNameLength);
 
 		/// Save as CLUSTAL like output.
 		virtual void saveClustal(ostream &output) const;
 
 		/// Sequences
 		vector<Sequence*> sequences;
+
+	private:
+
+		unsigned int  maxNameLength;
 	};
 
 }}
