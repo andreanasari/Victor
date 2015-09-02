@@ -62,7 +62,7 @@ namespace Victor { namespace Align2{
         void saveMSAF(ostream &output) const;
 
         /// Save as FASTA like output.
-        virtual void saveFasta(ostream &output, bool showScore = true) const;
+        virtual void saveFasta(ostream &output) const;
 
 
         // MODIFIERS:

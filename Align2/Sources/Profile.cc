@@ -89,8 +89,7 @@ namespace Victor { namespace Align2{
         time_t t;
         pResetData();
         seqLen = ali.getTarget().size();
-        numSeq = ali.size();
-
+        numSeq = ali.size() - 2;
         time(&t);
         newtime = localtime(&t);
         cout << "ready for pConstructData " << newtime->tm_hour << "/" << newtime->tm_min << endl;
@@ -104,9 +103,9 @@ namespace Victor { namespace Align2{
     void
     Profile::setProfile(Alignment &ali, istream &is) {
         pResetData();
-
+        cout << "ali:  " << ali.getTarget();
         seqLen = ali.getTarget().size();
-        numSeq = ali.size();
+        numSeq = ali.size() - 2;
 
         if (!gap) {
             ali.purgeTargetInsertions();
@@ -173,12 +172,11 @@ namespace Victor { namespace Align2{
         else
             freqGap++;
 
-        for (unsigned int j = 0; j < numSeq; j++){
+        for (unsigned int j = 0; j < (numSeq - 1); j++)
             if (aminoAcidOneLetterTranslator(ali.getTemplate(j)[i]) != XXX)
                 freq[aminoAcidOneLetterTranslator(ali.getTemplate(j)[i])]++;
             else
                 freqGap++;
-        }
     }
     /**
      * 
@@ -198,13 +196,11 @@ namespace Victor { namespace Align2{
             profAliFrequency.push_back(tmp);
             gapFreq.push_back(0.00);
         }
-
         for (unsigned int i = 0; i < seqLen; i++) {
             pCalculateRawFrequency(profAliFrequency[i], gapFreq[i], ali, i);
             for (AminoAcidCode j = ALA; j <= TYR; j++)
-                profAliFrequency[i][j] /= ((numSeq + 1) - gapFreq[i]);
+                profAliFrequency[i][j] /= (numSeq - gapFreq[i]);
         }
-
         setSeq(ali.getTarget());
     }
     /**
