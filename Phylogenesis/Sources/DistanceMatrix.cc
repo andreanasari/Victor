@@ -103,7 +103,7 @@ namespace Victor { namespace Phylogenesis{
 	double DistanceMatrix::calculateDistance(string alignedS1, string alignedS2){
 		double matches = 0;
 
-		for(int i=0;i<alignedS1.size();i++){
+		for(unsigned int i=0;i<alignedS1.size();i++){
 			if(alignedS1[i] == '-' || alignedS2[i] == '-'){
 				continue;
 			}

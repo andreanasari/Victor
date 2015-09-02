@@ -36,6 +36,8 @@ namespace Phylogenesis {
 	}
 
 	void MultipleAlignment::saveClustal(string t, string tName, ostream &output, unsigned int from) {
+		tName = tName.substr(0,tName.find(' '));
+
 		output << tName;
 		for (int i = 0; i < (17 - static_cast<int> (tName.length())); ++i)
 			output << " ";
