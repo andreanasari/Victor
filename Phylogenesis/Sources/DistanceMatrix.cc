@@ -179,6 +179,7 @@ namespace Victor { namespace Phylogenesis{
 		}
 
 		vector<string> res = a->getMatch();
+		delete a;
 		return res;
 	}
 
